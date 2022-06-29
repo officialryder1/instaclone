@@ -11,3 +11,15 @@ class Post(models.Model):
 
     def __str__(self):
         return str(self.user)
+
+
+class Profile(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_profile')
+    image = models.FileField(upload_to='profile_pix')
+    username = models.CharField(max_length=100)
+    bio = models.TextField(max_length=250)
+    website = models.URLField(blank=True, null=True)
+    number = models.IntegerField(max_length=20)
+
+    def __str__(self):
+        return self.username
