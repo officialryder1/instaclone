@@ -8,6 +8,7 @@ class Post(models.Model):
     description = models.TextField()
     like = models.ManyToManyField(User,default=0, blank=True, related_name='post_like')
     follow = models.ManyToManyField(User, default=0, blank=True, related_name='post_follow')
+    date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return str(self.user)

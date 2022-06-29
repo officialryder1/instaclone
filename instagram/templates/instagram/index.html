@@ -295,7 +295,7 @@
           </svg>
         </button>
       </div>
-
+      {% for post in post %}
       <div class="posts">
         <article class="post">
           <div class="post__header">
@@ -311,7 +311,7 @@
                 href=""
                 target="_blank"
                 class="post__user"
-                >leocosta1</a
+                >{{ post.user }}</a
               >
             </div>
 
@@ -344,7 +344,7 @@
             <div class="post__medias">
               <img
                 class="post__media"
-                src="{% static 'assets/insta-clone.png' %}"
+                src="{{ post.image.url }}"
                 alt="Post Content"
               />
             </div>
@@ -446,8 +446,7 @@
                     target="_blank"
                     >leocosta1</a
                   >
-                  Responsive clone of Instagram UI. Made with ❤ for study
-                  purposes.
+                 {{post.description}}
                 </span>
               </div>
 
@@ -455,7 +454,7 @@
             </div>
           </div>
         </article>
-
+      {% endfor %}
         <section class="side-menu">
           <div class="side-menu__user-profile">
             <a
